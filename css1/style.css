@@ -78,7 +78,7 @@
   background: #063146;
   user-select: none;
 }
-.sidebar ul a{
+.sidebar ul li i{
   display: block;
   height: 100%;
   width: 100%;
@@ -100,7 +100,7 @@
 .op{
   background: #042331;
   color: aqua;
-  font-size: 15pt;
+  font-size: 1.5em;
   width: 100%;
 }
 #iframe-container {

@@ -50,7 +50,7 @@
     overflow-y: scroll;
   }
   .sidebar header {
-    font-size: 1.0em;
+    font-size: 0.8em;
     color: whitesmoke;
     line-height: 1.5em;
     text-align: center;
@@ -67,5 +67,11 @@
     box-sizing: border-box;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid black;
+  }
+  .op{
+    background: #042331;
+    color: aqua;
+    font-size: 0.8em;
+    width: 100%;
   }
 }
