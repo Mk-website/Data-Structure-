@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Arrays</h1>
+    <h2>Program 14</h2>
+    <div class="box" id="pro1">
+    <h3>Enter an array from user and display all the value ?</h3>
+    <p>
+       <pre> 
+    #include &lt;stdio.h&gt;
+    
+    int main() {
+    int n;
+    
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+    
+    int arr[n];
+    
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i &lt;n; i++) {
+    scanf("%d", &arr[i]);
+    }
+    
+    printf("All possible combinations:\n");
+    
+    // Generate all combinations using nested loops
+    for (int i = 0; i &lt;n; i++) 
+    {
+        for (int j = i; j &lt;n; j++) 
+        {
+        printf("{ ");
+    for (int k = i; k <= j; k++) 
+    { 
+        printf("%d ", arr[k]);
+    }
+        printf(" }\n"); 
+    } 
+} return 0; 
+}
+            
+        </pre>
+    </p>
+</div>
+    <h1>OUTPUT</h1>
+    <div id="result">
+        <pre>
+Enter the elements of the array:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+All possible combinations:
+{ 1 }
+{ 1 2 }
+{ 1 2 3 }
+{ 1 2 3 4 }
+{ 1 2 3 4 5 }
+{ 1 2 3 4 5 6 }
+{ 1 2 3 4 5 6 7 }
+{ 1 2 3 4 5 6 7 8 }
+{ 1 2 3 4 5 6 7 8 9 }
+{ 1 2 3 4 5 6 7 8 9 10 }
+{ 2 }
+{ 2 3 }
+{ 2 3 4 }
+{ 2 3 4 5 }
+{ 2 3 4 5 6 }
+{ 2 3 4 5 6 7 }
+{ 2 3 4 5 6 7 8 }
+{ 2 3 4 5 6 7 8 9 }
+{ 2 3 4 5 6 7 8 9 10 }
+{ 3 }
+{ 3 4 }
+{ 3 4 5 }
+{ 3 4 5 6 }
+{ 3 4 5 6 7 }
+{ 3 4 5 6 7 8 }
+{ 3 4 5 6 7 8 9 }
+{ 3 4 5 6 7 8 9 10 }
+{ 4 }
+{ 4 5 }
+{ 4 5 6 }
+{ 4 5 6 7 }
+{ 4 5 6 7 8 }
+{ 4 5 6 7 8 9 }
+{ 4 5 6 7 8 9 10 }
+{ 5 }
+{ 5 6 }
+{ 5 6 7 }
+{ 5 6 7 8 }
+{ 5 6 7 8 9 }
+{ 5 6 7 8 9 10 }
+{ 6 }
+{ 6 7 }
+{ 6 7 8 }
+{ 6 7 8 9 }
+{ 6 7 8 9 10 }
+{ 7 }
+{ 7 8 }
+{ 7 8 9 }
+{ 7 8 9 10 }
+{ 8 }
+{ 8 9 }
+{ 8 9 10 }
+{ 9 }
+{ 9 10 }
+{ 10 }
+        </pre>
+    </div>
+
+</body>
+
+</html>

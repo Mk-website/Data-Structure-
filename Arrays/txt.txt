@@ -1,0 +1,80 @@
+ <!--ul><li>The program starts by asking the user to enter the size of the array using the 
+        <code>printf</code> and <code>scanf</code> functions.</li>
+        <li>The entered size is stored in the variable 
+        <code>size</code>.</li></ul>
+        <p><strong>Input the Elements of the Array</strong></p>
+        <ul>
+        <li>The program then declares an array 
+            <code>array</code> of size 
+            <code>size</code> to store the entered integers.</li>
+            <li>A loop is used to iterate through the array indices
+                 (<code>i</code>) from 0 to <code>size - 1</code>.</li>
+                 <li>Inside the loop, the user is prompted to enter an integer value using <code>scanf</code>, and the entered value is stored in the <code>i</code>-th position of the array.</li></ul>
+                </li>
+               <p><strong>Display the Elements of the Array</strong></p><ul><li>After all the values are entered, another loop is used to iterate through the array and display its contents.</li><li>The loop starts from index 0 and goes up to <code>size - 1</code>.
+                <li>Inside the loop, each value stored in the array at the current index is displayed using <code>printf</code>.</li></ul></li>
+        <p><strong>Program Termination</strong></p><ul><li>Finally, the program returns 0 to indicate successful execution to the operating system.</li></ul></li>
+    
+    </ul-->
+<ul><li>The program starts by asking the user to enter the size of the array using the 
+        <code>printf</code> and <code>scanf</code> functions.</li>
+        <li>The entered size is stored in the variable 
+        <code>size</code>.</li></ul>
+        <p><strong>Input the Elements of the Array</strong></p>
+        <ul>
+        <li>The program then declares an array 
+            <code>array</code> of size 
+            <code>size</code> to store the entered integers.</li>
+            <li>A loop is used to iterate through the array indices
+                 (<code>i</code>) from 0 to <code>size - 1</code>.</li>
+                 <li>Inside the loop, the user is prompted to enter an integer value using <code>scanf</code>, and the entered value is stored in the <code>i</code>-th position of the array.</li></ul>
+                </li>
+                <p>This loop copies the values from the <code>arr</code> array to the <code>arr2</code> array. For each index <code>i</code>, the value of <code>arr[i]</code> is stored in the corresponding index of <code>arr2</code>.</p>
+               <p><strong>Display the Elements of the Array</strong></p><ul><li>After all the values are entered, another loop is used to iterate through the array and display its contents.</li><li>The loop starts from index 0 and goes up to <code>size - 1</code>.
+                <li>Inside the loop, each value stored in the array at the current index is displayed using <code>printf</code>.</li></ul></li>
+        <p><strong>Program Termination</strong></p><ul><li>Finally, the program returns 0 to indicate successful execution to the operating system.</li></ul></li>
+    
+    </ul>
+
+    <ul><li>The program starts by asking the user to enter the size of the array using the 
+        <code>printf</code> and <code>scanf</code> functions.</li>
+        <li>The entered size is stored in the variable 
+        <code>size</code>.</li></ul>
+        <p><strong>Input the Elements of the Array</strong></p>
+        <ul>
+        <li>The program then declares an array 
+            <code>array</code> of size 
+            <code>size</code> to store the entered integers.</li>
+            <li>A loop is used to iterate through the array indices
+                 (<code>i</code>) from 0 to <code>size - 1</code>.</li>
+                 <li>Inside the loop, the user is prompted to enter an integer value using <code>scanf</code>, and the entered value is stored in the <code>i</code>-th position of the array.</li></ul>
+                </li>
+               <p><strong>Display the Elements of the Array</strong></p><ul><li>After all the values are entered, another loop is used to iterate through the array and display its contents.</li><li>The loop starts from index 0 and goes up to <code>size - 1</code>.
+                <li>Inside the loop, each value stored in the array at the current index is displayed using <code>printf</code>.</li></ul></li>
+        <p><strong>Program Termination</strong></p><ul><li>Finally, the program returns 0 to indicate successful execution to the operating system.</li></ul></li>
+    
+    </ul>
+
+  
+   </div>
+   <div class="r">
+    <h1>Code Editor </h1>
+    <textarea class="editor" readonly>
+        #include &lt;stdio.h&gt;
+       
+            void main() 
+            {
+                int arr[10],i;
+                for ( i = 0; i < 10; i++) 
+                { 
+                    printf("Enter value at %d position\n",i+1); 
+                    scanf("%d",&arr[i]); 
+                } 
+                printf("Your Enter Array is :- \n"); 
+                 for ( i = 0; i < 10; i++) 
+                { 
+                    printf("\n%d ",arr[i]); 
+                    
+                } 
+            }
+    </textarea>

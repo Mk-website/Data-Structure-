@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>2D Arrays</h1>
+    <h2>Program 4</h2>
+    
+    <div class="box" id="pro1">
+        <h3>Enter two Matrices from user, multiply the matrices and display the answer?</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+void display(int arr[3][3])
+{
+    int i,j,sum[3][3];
+    for(i=0;i&lt;3;i++)
+    {
+        for (j = 0; j &lt; 3; j++)
+        {
+            printf("%d\t",arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+void multi(int arr1[3][3],int arr2[3][3])
+{
+    int i,j,k,mul[3][3];
+    for(i=0;i&lt;3;i++)
+    {
+        for(j=0;j&lt;3;j++)
+        {
+            mul[i][j]=0;
+            for(k=0;k&lt;3;k++)
+            {
+            mul[i][j]+=arr1[i][k]*arr2[k][j];
+            }
+        }
+    }
+    display(mul);
+}
+void main()
+{
+    int arr[3][3],arr2[3][3];
+    for( i = 0; i < 3; i++)
+        {
+        for (j = 0; j < 2; j++)
+        {
+            printf("For First Matrix\n");
+            printf("Enter Value at A[%d,%d]\t", i+1, j+1);
+            scanf("%d", &arr[i][j]);
+            printf("For Second Matrix\n");
+            printf("Enter Value at B[%d,%d]\t", i+1, j+1);
+            scanf("%d", &arr2[i][j]);
+        }
+        }
+   multi(arr,arr2);
+    
+}
+  </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter value at 1 position
+4
+Enter value at 2 position
+3
+Enter value at 3 position
+2
+Enter value at 4 position
+5
+Enter value at 5 position
+6
+Enter value at 6 position
+9
+Enter value at 7 position
+8
+Enter value at 8 position
+15
+Enter value at 9 position
+24
+Enter value at 10 position
+56
+Your Enter Array is :- 
+
+4
+3
+2
+5
+6
+9
+8
+15
+24
+56
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

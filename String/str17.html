@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 17</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM THE USER, AND COUNT THE NUMBER OF VOWELS.</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+        void get(char str[],int s)
+        {
+            int i;
+            char c;
+            printf("Enter Sentance\n");
+            for ( i = 0; i &lt; s; i++)
+            {
+                c=getchar();
+                if(c=='\n')
+                break;
+                str[i]=c;
+            }
+            str[i]='\0';
+        }
+        void display(char str3[])
+        {
+           
+                printf("string is %s",str3);
+        }
+        int length(char str[],int i)
+        {
+            for ( i = 0; str[i]!='\0'; i++);
+            printf("length is %d\n",i);
+            return i;
+            
+            
+        }
+        int count(char str[],int s,int i)
+        {
+            int sum=0;
+            for(i=0;i &lt; s;i++)
+            {
+                if(str[i]=='a' || str[i]=='A' || str[i]=='o' || str[i]=='O' || str[i]=='e' || str[i]=='E' || str[i]=='i' || str[i]=='I' || str[i]=='u' || str[i]=='U' )
+                sum++;
+            }
+            printf("Number of vowel is %d ",sum);
+        }
+        void main()
+        {
+            char str[50];
+            get(str,50);
+            int l=length(str,0);
+            count(str,l,0);
+        }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Sentance
+manjit is a good boy
+length is 20
+Number of vowel is 7
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

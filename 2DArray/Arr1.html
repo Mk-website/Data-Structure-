@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Arrays</h1>
+    <h2>Program 1</h2>
+    <div class="box" id="pro1">
+    <h3>Enter a matrix of 4 rows and 2 columns from the user display it in matrix format?</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+      
+void main()
+{
+int matrix[4][2],i,j;
+printf("Enter value in Matrix\n");
+for ( i = 0; i &lt; 4; i++)
+{
+    for ( j = 0; j &lt; 2; j++)
+    {
+        scanf("%d",&matrix[i][j]);
+    }
+    
+}
+printf("Matrix\n");
+for ( i = 0; i &lt; 4; i++)
+{
+    for ( j = 0; j &lt; 2; j++)
+    {
+        printf("%d ",matrix[i][j]);
+    }
+    printf("\n");
+}
+
+}
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+  <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Enter value in Matrix
+        1
+        2
+        3
+        5
+        6
+        6
+        2
+        3
+        Matrix
+        1 2
+        3 5
+        6 6
+        2 3
+</pre>
+   
+</div>
+</body>
+</html>

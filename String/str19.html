@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 19</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM THE USER AND CONVERT INTO A FLOAT VALUE?</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+void get(char str[],int s)
+{
+    int i;
+    char c;
+    for ( i = 0; i < s; i++)
+    {
+        c=getchar();
+        if(c=='\n')
+        break;
+        str[i]=c;
+    }
+    str[i]='\0';
+}
+float stringToFloat(const char *str) {
+    float result = 0.0f;
+    float fraction = 0.1f;
+    int sign = 1;
+
+    // Check for a negative sign
+    if (*str == '-') {
+        sign = -1;
+        str++;
+    }
+
+    // Process the integer part of the number
+    while (*str != '\0' && *str >= '0' && *str <= '9') {
+        result = result * 10.0f + (*str - '0');
+        str++;
+    }
+
+    // Process the fractional part of the number
+    if (*str == '.') {
+        str++;
+        while (*str != '\0' && *str >= '0' && *str <= '9') {
+            result += (*str - '0') * fraction;
+            fraction /= 10.0f;
+            str++;
+        }
+    }
+
+    return result * sign;
+}
+
+int main() {
+    char str[50];
+    printf("Enter String\n");
+    get(str,50);
+     // Your input string
+    float num = stringToFloat(str);
+
+    printf("String as float: %f\n", num);
+    return 0;
+}
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter String
+54.878
+String as float: 54.877998
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

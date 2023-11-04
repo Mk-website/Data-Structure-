@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>2D Arrays</h1>
+    <h2>Program 3</h2>
+    <div class="box" id="pro1">
+    <h3>Enter two Matrices from user, subtract the matrices and display the answer?</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+
+    void display(int arr[3][3])
+    {
+        int i,j,sum[3][3];
+        for(i=0;i&lt;3;i++)
+        {
+            for (j = 0; j &lt; 3; j++)
+            {
+                printf("%d\t",arr[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    void subtract(int arr1[3][3],int arr2[3][3])
+    {
+        int i,j,sum[3][3];
+        for(i=0;i&lt;3;i++)
+        {
+            for (j = 0; j &lt; 3; j++)
+            {
+                sum[i][j]=arr1[i][j]-arr2[i][j];
+    
+            }
+            
+        }
+        display(sum);
+    }
+    void main()
+    {
+        int arr1[3][3],arr2[3][3];
+        for( i = 0; i &lt; 2; i++)
+        {
+        for (j = 0; j &lt; 2; j++)
+        {
+            printf("For First Matrix\n");
+            printf("Enter Value at A[%d,%d]\t", i+1, j+1);
+            scanf("%d", &arr1[i][j]);
+            printf("For Second Matrix\n");
+            printf("Enter Value at B[%d,%d]\t", i+1, j+1);
+            scanf("%d", &arr2[i][j]);
+        }
+        }
+        subtract(arr1,arr2);
+    }
+</pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        For First Matrix
+        Enter Value at A[1,1]   1
+        For Second Matrix    
+        Enter Value at B[1,1]   2
+        For First Matrix     
+        Enter Value at A[1,2]   3
+        For Second Matrix    
+        Enter Value at B[1,2]   4
+        For First Matrix     
+        Enter Value at A[2,1]   5
+        For Second Matrix    
+        Enter Value at B[2,1]   6
+        For First Matrix     
+        Enter Value at A[2,2]   7
+        For Second Matrix    
+        Enter Value at B[2,2]   8
+        -1      -1
+        -1      -1
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

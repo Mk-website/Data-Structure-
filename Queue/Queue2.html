@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Queue</h1>
+    <h2>Program 2</h2>
+    <div class="box" id="pro1">
+    <h3>IMPLEMENT THE OPERATIONS OF SIMPLE QUEUE IN AN STRING ARRAY (INSERT, DELETE, PEEK, ISEMPTY, ISFULL)</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+      
+            #include&lt;conio.h&gt
+            #include&lt;string.h&gt
+            void get(char str[],int s)
+            {
+                int i;
+                char c;
+                //printf("Enter Sentance\n");
+                for ( i = 0; i &lt; s; i++)
+                {
+                    c=getchar();
+                    if(c=='\n')
+                    break;
+                    str[i]=c;
+                }
+                str[i]='\0';
+            }
+            int isEmpty(int front, int rear)
+            {
+                if (front == rear)
+                {
+                    return 1;
+                }
+                return 0;
+            }
+            
+            int isFull(int rear, int size)
+            {
+                if (rear == size)
+                {
+                    return 1;
+                }
+                return 0;
+            }
+            int enqueue(char queue[10][20], int size, int rear, char value[])
+            {
+                if (isFull(rear, size))
+                {
+                    return -1;
+                }
+                rear++;
+                strcpy(queue[rear], value);
+                return rear;
+            }
+            
+            int dequeue(int front, int rear)
+            {
+                if (isEmpty(front, rear))
+                {
+                    return -1;
+                }
+                front++;
+                return front;
+            }
+            
+            int peek(int front, int rear)
+            {
+                if (isEmpty(front, rear))
+                {
+                    return -1;
+                }
+                return front+1;
+            }
+            void main()
+            {
+                char queue[10][20],val[20];
+                int f=-1,r=-1,ch,check;
+               do
+               {
+                 printf("Enter Choise\n");
+                 printf("1.push\n 2.delete\n 3.peek\n 4.Display\n 5.Exit\n");
+                 scanf("%d",&ch);
+                 switch (ch)
+                 {
+                 case 1:
+                    printf("Enter Value\n");
+                    scanf("%s",val);
+                    check=enqueue(queue,10,r,val);
+                      if (check == -1)
+                            printf("Queue is full\n");
+                        else
+                        {
+                            printf("%s inserted to Queue\n", val);
+                            r = check;
+                        }
+                    break;
+                 case 2:
+                    check=dequeue(f,r);
+                    if (check == -1)
+                            printf("Queue is Empty\n");
+                        else
+                        {
+                            printf("Dequeue Successfull\n");
+                            f = check;
+                        }
+                    break;
+                    case 3:
+                    check=peek(f,r);
+                     if (check == -1)
+                        {
+                            printf("Queue is Empty");
+                        }
+                        else
+                        {
+                            printf("%s is the frontmost element of Queue\n", queue[check]);
+                        }
+                    break;
+                   
+                    case 4:
+                    printf("Thanks\n");
+                    break;
+                 default:
+                 printf("error\n");
+                    break;
+                 }
+               } while (ch!=4);
+               
+            
+            }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Choise
+1.push   
+ 2.delete
+ 3.peek  
+ 4.Exit  
+1
+Enter Value
+manjit
+manjit inserted to Queue
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+1
+Enter Value
+abhishek
+abhishek inserted to Queue
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+1
+Enter Value
+sandeep
+sandeep inserted to Queue
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+3
+manjit is the frontmost element of Queue
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+2
+Dequeue Successfull
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+3
+abhishek is the frontmost element of Queue
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+2
+Dequeue Successfull
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+3
+sandeep is the frontmost element of Queue
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+2
+Dequeue Successfull
+Enter Choise
+1.push
+ 2.delete
+ 3.peek
+ 4.Exit
+2
+Queue is Empty
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

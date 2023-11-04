@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 27</h2>
+    <div class="box" id="pro1">
+    <h3>DISPLAY THE STRING ON THE OUTPUT SCREEN BUT ASK THE TEXT ALIGNMENT OPTION GIVEN BY THE USER (1 FOR LEFT, 2 FOR CENTER, 3 RIGHT)</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    #include&lt;conio.h&gt;
+    #include&lt;dos.h&gt;
+    void displayAlignedText(char text[], int alignment) {
+        int length = strlen(text), i;
+    
+        if (alignment == 1) {
+            printf("%s\n", text); 
+        } else if (alignment == 2) {
+            int spaces = (80 - length) / 2; 
+        for (i = 0; i &lt; spaces; i++) {
+            printf(" ");
+        }
+        printf("%s\n", text);
+        } else if (alignment == 3) {
+        int spaces = 80 - length;
+        for (i = 0; i &lt; spaces; i++) {
+            printf(" ");
+        }
+        printf("%s\n", text);
+        } else {
+        printf("Invalid alignment option.\n");
+        }
+    }
+    
+    void main() {
+        char text[25];
+        int alignment;
+        clrscr();
+        printf("Enter String\n");
+        gets(text);
+        printf("Enter alignment option (1 for left, 2 for center, 3 for right): ");
+        scanf("%d", &alignment);
+    
+        displayAlignedText(text, alignment);
+    
+        delay(5000);
+    }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Enter String
+        hello                                                                           
+        Enter alignment option (1 for left, 2 for center, 3 for right): 2               
+                                             hello                                      
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

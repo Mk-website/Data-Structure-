@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 4</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM USER AND CONVERT INTO TITLE CASE ?</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+    
+        void get(char str[],int s)
+        {
+            int i;
+            char c;
+            printf("Enter Sentance\n");
+            for ( i = 0; i  &lt; s; i++)
+            {
+                c=getchar();
+                if(c=='\n')
+                break;
+                str[i]=c;
+            }
+            str[i]='\0';
+        }
+        void main()
+        {
+           
+            char str[50];
+            int i;
+            get(str,50);
+            if (str[0]>='a' && str[0] &lt;='z')
+            {
+                str[0]=str[0]-32;
+            }
+            
+            for ( i = 0; str[i]!='\0'; i++)
+            {
+                if(str[i]=='.'||str[i]=='?' || str[i]==' ')
+                str[i+1]=str[i+1]-32;
+            }
+            
+            printf("Sentance is : %s",str);
+        }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Sentance
+My name is manjit kumar
+Sentance is : My Name Is Manjit Kumar 
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

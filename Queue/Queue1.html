@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Queue</h1>
+    <h2>Program 1</h2>
+    <div class="box" id="pro1">
+    <h3>IMPLEMENT THE OPERATIONS OF SIMPLE QUEUE IN AN INTEGER ARRAY (INSERT, DELETE, PEEK, ISEMPTY, ISFULL)</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+int enqueue(int[],int,int,int);
+int del(int,int);
+int peek(int,int);
+
+int isEmpty(int front, int rear)
+{
+    if (front == rear)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+int isFull(int rear, int size)
+{
+    if (rear == size)
+    {
+        return 1;
+    }
+    return 0;
+}
+void main()
+{
+   int queue[100],f=-1,r=-1,ch,val,check;
+   do
+   {
+     printf("Enter Choise\n");
+     printf("1.push\n 2.delete\n 3.peek\n 4.Display\n 5.Exit\n");
+     scanf("%d",&ch);
+     switch (ch)
+     {
+     case 1:
+        printf("Enter Value\n");
+        scanf("%d",&val);
+        check=enqueue(queue,f,r,val);
+          if (check == -1)
+                printf("Queue is full\n");
+            else
+            {
+                printf("%d inserted to Queue\n", val);
+                r = check;
+            }
+        break;
+     case 2:
+        check=del(f,r);
+        if (check == -1)
+                printf("Queue is Empty\n");
+            else
+            {
+                printf("Dequeue Successfull\n");
+                f = check;
+            }
+        break;
+        case 3:
+        check=peek(f,r);
+         if (check == -1)
+            {
+                printf("Queue is Empty");
+            }
+            else
+            {
+                printf("%d is the frontmost element of Queue\n", queue[check]);
+            }
+        break;
+       
+        case 5:
+        printf("Thanks\n");
+        break;
+     default:
+     printf("error\n");
+        break;
+     }
+   } while (ch!=5);
+   
+}
+int enqueue(int queue[],int f,int r,int val)
+{
+   if (isFull(r,100))
+   {
+        return -1;
+   }
+   
+    
+        r++;
+    queue[r]=val;
+        return r;
+}
+int del(int f,int r)
+{
+    if(isEmpty(f,r))
+    {
+        printf("Queue is Empty\n");
+        return -1;
+    }
+    
+    else{
+        f++; 
+        return f;
+    }
+}
+int peek(int f,int r) {
+    if (isEmpty(f,r)) {
+        return -1; // Return a sentinel value or handle the error as needed.
+    }
+    return f+1;
+}
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Enter Choise
+        1.push  
+        2.delete
+        3.peek  
+        4.Exit  
+       1
+       Enter Value
+       56
+       56 inserted to Queue
+       Enter Choise        
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       1
+       Enter Value
+       87
+       87 inserted to Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       1
+       Enter Value
+       54
+       54 inserted to Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       1
+       Enter Value
+       23
+       23 inserted to Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       3
+       56 is the frontmost element of Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       2
+       Dequeue Successfull
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       3
+       87 is the frontmost element of Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       2
+       Dequeue Successfull
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       3
+       54 is the frontmost element of Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       1
+       Enter Value
+       45
+       45 inserted to Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       3
+       54 is the frontmost element of Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       2
+       Dequeue Successfull
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       3
+       23 is the frontmost element of Queue
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       2
+       Dequeue Successfull
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       2
+       Dequeue Successfull
+       Enter Choise
+        1.push
+        2.delete
+        3.peek
+        4.Exit
+       3
+       Queue is Empty
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

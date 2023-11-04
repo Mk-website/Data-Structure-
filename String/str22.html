@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 22</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM THE USER, SORT THE STRING IN ASCENDING ORDER AND PRINT IT.</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+void get(char str[],int s)
+{
+    int i;
+    char c;
+    printf("Enter Sentance\n");
+    for ( i = 0; i &lt; s; i++)
+    {
+        c=getchar();
+        if(c=='\n')
+        break;
+        str[i]=c;
+    }
+    str[i]='\0';
+}
+void display(char str3[])
+{
+   
+        printf("Sorted string is %s",str3);
+}
+int length(char str[],int i)
+{
+    for ( i = 0; str[i]!='\0'; i++);
+    printf("length is %d\n",i);
+    return i;
+    
+    
+}
+void sort(char str[])
+{
+    int i,j,temp;
+    for ( i = 0;str[i]!='\0'; i++)
+    {
+        for(j=i+1;str[j]!='\0';j++)
+        {
+            if(str[i] >str[j])
+            {
+            temp=str[i];
+            str[i]=str[j];
+            str[j]=temp;
+            }
+        }
+    }
+    
+}
+void main()
+{
+    char str[50];
+    int l;
+    get(str,50);
+    l=length(str,0);
+    sort(str);
+    display(str);
+}
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Sentance
+manjit
+length is 6
+Sorted string is aijmnt
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

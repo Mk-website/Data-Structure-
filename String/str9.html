@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 9</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM USER AND COPY IT INTO ANOTHER STRING VARIABLE?</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+      
+            void get(char str[],int s)
+            {
+                int i;
+                char c;
+                printf("Enter Sentance\n");
+                for ( i = 0; i < s; i++)
+                {
+                    c=getchar();
+                    if(c=='\n')
+                    break;
+                    str[i]=c;
+                }
+                str[i]='\0';
+            }
+            void display(char str3[])
+            {
+               
+                    printf("Copied string is %s",str3);
+            }
+            void copy(char str[])
+            {
+                char str2[50];
+                int i;
+                for ( i = 0; str[i]!='\0'; i++)
+                {
+                    str2[i]=str[i];
+                }
+                str2[i]='\0';
+                display(str2);
+            }
+            void main()
+            {
+                char str[50];
+                get(str,50);
+                copy(str);
+            
+            }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Sentance
+manjit
+Copied string is manjit
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

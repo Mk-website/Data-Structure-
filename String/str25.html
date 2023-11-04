@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 25</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM THE USER AND TRIM/ ELIMINATE THE SPACES FROM BOTH ENDS (IF ANY).</h3>
+    <p>
+      <pre>
+        #include&lt;stdio.h&gt;
+    #include&lt;conio.h&gt;
+    #include&lt;dos.h&gt;
+    void main(){
+        int i,j;
+        char str[30];
+        clrscr();
+        printf("Enter String\n");
+        gets(str);
+        printf("Before Trim\n");
+        printf("%c", '(');
+        printf("%s", str);
+        printf("%c\n", ')');
+    
+        for (i = 0; str[i]; i++)
+        {
+        j=0;
+        for (j = 0; str[i+j] == ' '; j++);
+        if(str[i+j] == '\0')
+        {
+            str[i] = str[i+j];
+            break;
+        }
+        else
+            i = i+j;
+    
+        }
+        for(i = 0, j = 0; str[i]; i++){
+        if(i == 0 && str[i] == ' ')
+            while(str[i+1] == ' ')
+              i++;
+        else
+           str[j++] = str[i];
+        }
+        str[j] = '\0';
+        printf("After Trim\n");
+        printf("%c", '(');
+        printf("%s", str);
+        printf("%c", ')');
+        delay(5000);
+    }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Enter String
+        ahhejh hehh                                                                  
+        Before Trim                                                                     
+        (   ahhejh hehh   )                                                             
+        After Trim                                                                      
+        (ahhejh hehh)
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Stack</h1>
+    <h2>Program 1</h2>
+    <div class="box" id="pro1">
+    <h3>CREATE THE PROGRAM TO MATCH THE SINGLE BRACKET USING STACKS.</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+int push(char[],int,char);
+int pop(char[],int,char);
+void get(char str[],int s)
+{
+    int i;
+    char c;
+    for ( i = 0; i &lt; s; i++)
+    {
+        c=getchar();
+        if (c=='\n')
+        {
+            break;
+        }
+        str[i]=c;
+        
+    }
+    str[i]='\0';
+}
+void main()
+{
+    char arr[100],val;
+    int i=-1,j;
+   printf("Enter Expresion\n");
+    get(arr,100);
+    for ( j = 0; arr[j]!='\0'; j++)
+    {
+        
+        if (arr[j]=='(')
+        {
+            i=push(arr,i,arr[j]);
+        }
+        else if (arr[j]==')')
+        {
+            i=pop(arr,i,arr[j]);
+        }
+
+}
+ if (i==-1)
+ {
+    printf("Matched\n");
+ }
+ else
+ printf(" Not Matched\n");
+ 
+}
+int push(char stack[],int i,char val)
+{
+    if (i==100)
+    {
+        printf("Stack is Full\n");
+        return i;
+    }
+    else
+    {
+        i++;
+        stack[i]=val;
+        return i;
+    }
+    
+}
+int pop(char stack[],int i,char val)
+{
+    char item='\0';
+    if (i>=0)
+    {
+         i--;
+        val=stack[i];
+        return i;
+    }
+    else
+    return i=-2;
+    
+}
+            
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Enter Expresion
+        (a+b)+(b+c)
+        Brackets Matched
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

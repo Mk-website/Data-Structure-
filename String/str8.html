@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 8</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER TWO STRINGS FROM USER AND CONCATENATE THOSE STRINGS IN ANOTHER STRING AND DISPLAY THE ANSWER?</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+      
+    
+            void get(char str[],int s)
+            {
+                int i;
+                char c;
+                printf("Enter Sentance\n");
+                for ( i = 0; i < s; i++)
+                {
+                    c=getchar();
+                    if(c=='\n')
+                    break;
+                    str[i]=c;
+                }
+                str[i]='\0';
+            }
+            void display(char str3[])
+            {
+               
+                    printf("concatenate string is %s",str3);
+            }
+            void concatenate(char str[],char str2[])
+            {
+                int i,j;
+                char r[50];
+                for ( i = 0; str[i]!='\0'; i++)
+                {
+                    r[i]=str[i];
+                }
+                 for ( j = 0; str2[j]!='\0'; j++)
+                {
+                    r[i+j]=str2[j];
+                }
+                r[i+j]='\0';
+                display(r);
+            }
+            void main()
+            {
+               
+                char str[50],str2[50];
+                int i;
+                get(str,50);
+                get(str2,50);
+                concatenate(str,str2);
+                
+            }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Sentance
+manjit
+Enter Sentance
+kumar
+concatenate string is manjitkumar
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

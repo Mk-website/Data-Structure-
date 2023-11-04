@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Queue</h1>
+    <h2>Program 4</h2>
+    <div class="box" id="pro1">
+    <h3>IMPLEMENT THE OPERATIONS OF QUEUE DYNAMICALLY OF STRING (INSERT, DELETE, PEEK, ISEMPTY, ISFULL)</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+    struct Node {
+        char data[20];
+        struct Node* next;
+    };
+    typedef struct Node node;
+    
+    struct Queue {
+        struct Node* front;
+        struct Node* rear;
+    };
+    
+    
+    // Function to initialize an empty queue
+    void initialize(struct Queue* queue) {
+        queue->front = NULL;
+        queue->rear = NULL;
+    }
+    
+    // Function to check if the queue is empty
+    int isEmpty(struct Queue* queue) {
+        return queue->front == NULL;
+    }
+    
+    // Function to insert an element at the rear of the queue
+    void insert(struct Queue* queue, char item[]) {
+        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        strcpy(newNode->data, item);
+        newNode->next = NULL;
+    
+        if (isEmpty(queue)) {
+            queue->front = newNode;
+        } else {
+            queue->rear->next = newNode;
+        }
+        queue->rear = newNode;
+    }
+    
+    // Function to delete an element from the front of the queue
+    void delete(struct Queue* queue) {
+        if (isEmpty(queue)) {
+            printf("Queue is empty. Cannot delete.\n");
+            return;
+        }
+    
+        struct Node* temp = queue->front;
+        queue->front = temp->next;
+        free(temp);
+    
+        if (queue->front == NULL) {
+            // If there is only one element in the queue, reset rear to NULL
+            queue->rear = NULL;
+        }
+    }
+    
+    // Function to peek at the front element of the queue
+    void peek(struct Queue* queue) {
+        if (isEmpty(queue)) {
+            printf("Queue is empty. Nothing to peek.\n");
+        } else {
+            printf("Front element: %s\n", queue->front->data);
+        }
+    }
+    
+    int main() {
+        struct Queue queue;
+        initialize(&queue);
+    
+        int choice;
+        char item[20];
+    
+        while (1) {
+            printf("\nQueue Operations:\n");
+            printf("1. Insert\n");
+            printf("2. Delete\n");
+            printf("3. Peek\n");
+            printf("4. Is Empty\n");
+            printf("5. Quit\n");
+            printf("Enter your choice: ");
+            scanf("%d", &choice);
+    
+            switch (choice) {
+                case 1:
+                    printf("Enter an item to insert: ");
+                    scanf("%s",item);
+                    insert(&queue, item);
+                    break;
+                case 2:
+                    delete(&queue);
+                    break;
+                case 3:
+                    peek(&queue);
+                    break;
+                case 4:
+                    if (isEmpty(&queue)) {
+                        printf("Queue is empty.\n");
+                    } else {
+                        printf("Queue is not empty.\n");
+                    }
+                    break;
+                case 5:
+                    return 0;
+                default:
+                    printf("Invalid choice. Please try again.\n");
+            }
+        }
+    
+        return 0;
+    }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty        
+        5. Quit
+        Enter your choice: 1
+        Enter an item to insert: manjit
+        
+        Queue Operations:  
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty        
+        5. Quit
+        Enter your choice: 3
+        Front element: manjit
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 1
+        Enter an item to insert: sandeep
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 1
+        Enter an item to insert: abhishek
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 1
+        Enter an item to insert: kuldeep
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 3
+        Front element: manjit
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 2
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 3
+        Front element: sandeep
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 2
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 3
+        Front element: abhishek
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 2
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 3
+        Front element: kuldeep
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 2
+        
+        Queue Operations:
+        1. Insert
+        2. Delete
+        3. Peek
+        4. Is Empty
+        5. Quit
+        Enter your choice: 3
+        Queue is empty. Nothing to peek.
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

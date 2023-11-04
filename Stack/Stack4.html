@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Stack</h1>
+    <h2>Program 4</h2>
+    <div class="box" id="pro1">
+    <h3>CREATE A STACK IMPLEMENTING THE OPERATIONS ON THE CHARACTERS NODES (DYNAMICALLY) (PUSH, POP, PEEK, ISEMPTY, ISFULL)</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+struct stack
+{
+    char data;
+    struct stack *next;
+};
+typedef struct stack node;
+
+int isEmpty(node *top)
+{
+    if (top==NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
+int isFull(node *ptr)
+{
+    if (ptr == NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
+node* push(node *start,char val)
+{
+    node *nn;
+    nn=(node*)malloc(sizeof(node));
+    if (isFull(nn))
+    {
+       return NULL;
+    }
+     nn->data=val;
+     nn->next=start;
+        start=nn;
+        return start;
+}
+node* pop(node *start)
+{
+    node *temp;
+    if (isEmpty(start))
+    {
+        printf("Stack is Empty\n");
+        return 0;
+    }
+    temp=start;
+    start=temp->next;
+    free(temp);
+    return start;
+    
+}
+int peek(node *start)
+{
+    if (isEmpty(start))
+    {
+        return 0;
+    }
+    
+    return 1;
+}
+void main()
+{
+     int ch,i;
+     char val;
+    node *start=NULL;
+     do
+    {
+        printf("\nEnter your choice\n1.Push\n2.pop\n3.peek\n4.Exit\n");
+        scanf("%d",&ch);
+        switch (ch)
+        {
+        case 1:
+         printf("Enter Value\n");
+         scanf(" %c",&val);
+        start =push(start,val);
+            break;
+        case 2:
+        start=pop(start);
+        break;
+        case 3:
+        i=peek(start);
+        if (i==0)
+        {
+            printf("Stack is empty\n");
+        }
+        else
+        printf("Topest value is %c\n",start->data);
+        
+       break;
+        case 4:
+        printf("Thanks\n");
+        break;
+        default:
+        printf("Invalied option\n");
+            break;
+        }
+    } while (ch!=4);
+    
+}
+    
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+1
+Enter Value
+m
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+1
+Enter Value
+a
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+1
+Enter Value
+n
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+3
+Topest value is n
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+2
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+3
+Topest value is a
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+2
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+3
+Topest value is m
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+2
+
+Enter your choice
+1.Push
+2.pop
+3.peek
+4.Exit
+2
+Stack is Empty
+</pre>
+    </div>
+</div>
+</body>
+
+</html>
