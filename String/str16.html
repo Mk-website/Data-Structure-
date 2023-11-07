@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 16</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM THE USER, ALSO ENTER A CHARACTER AND PRINT THE INDEX OF THE CHARACTER IF IT IS EXIST IN THE STRING ELSE PRINT -1.</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+int search(char str[], char key){
+    int i;
+    for (i = 0; str[i]!= '\0'; i++)
+    {
+        if (key == str[i])
+        {
+            return i;
+        }
+    }
+    return -1;  
+}
+
+int main(){
+    char str[30];
+    int index;
+    printf("Enter String\n");
+    gets(str);
+    printf("Enter a character to find\n");
+    index = search(str, getche());
+    if (index == -1)
+        printf("\nCharacter not found in given string %d\n",index);
+    else
+        printf("\n%c is found at %d position\n", str[index], index+1);
+    
+}
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Enter String
+        manjit
+        Enter a character to find
+        k
+        Character not found in given string -1
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

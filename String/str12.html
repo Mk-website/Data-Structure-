@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 12</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM THE USER AND PRINT EACH CHARACTER IN NEW LINE ?</h3>
+    <p>
+      <pre>
+        #include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void get(char str[],int s)
+{
+    int i;
+    char c;
+    printf("Enter Sentance\n");
+    for ( i = 0; i &lt; s; i++)
+    {
+        c=getchar();
+        if(c=='\n')
+        break;
+        str[i]=c;
+    }
+    str[i]='\0';
+}
+void display(char str[])
+{
+    for ( int i = 0; str[i]!='\0'; i++)
+    {
+        printf("%c\n",str[i]);
+    }
+    
+}
+void main()
+{
+    char str[50];
+    get(str,50);
+    display(str);
+}
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Sentance
+manjit
+m
+a
+n
+j
+i
+t
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

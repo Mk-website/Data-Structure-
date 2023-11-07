@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 15</h2>
+    <div class="box" id="pro1">
+    <h3>NTER THE STRING FROM THE USER, ENTER A CHARACTER ALSO AND SEARCH THE CHARACTER IN THE STRING?</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+      
+        void getstr(char str[],int s)
+        {
+            int i;
+            char c;
+            for ( i = 0; i < s; i++)
+            {
+                c=getchar();
+                if (c=='\n')
+                {
+                    break;
+                }
+                str[i]=c;
+                
+            }
+            str[i]='\0';
+            
+        }
+        int main() {
+            char str[50];
+            getstr(str,50);
+            char characterToFind;
+            
+            printf("Enter a character to check if it exists in the string: ");
+            scanf("%c", &characterToFind);
+        
+            int found = 0;
+        
+            for (int i = 0; str[i] != '\0'; i++) {
+                if (str[i] == characterToFind) {
+                    found = 1;
+                    break; // Exit the loop if the character is found
+                }
+            }
+        
+            if (found) {
+                printf("The character '%c' exists in the string.\n", characterToFind);
+            } else {
+                printf("The character '%c' does not exist in the string.\n", characterToFind);
+            }
+        
+            return 0;
+        }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter string
+Manjit 
+Enter a character to check if it exists in the string: j
+The character 'j' exists in the string.
+56
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

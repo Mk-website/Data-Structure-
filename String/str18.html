@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 18</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM THE USER AND CONVERT INTO AN INTEGER VALUE?</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+      
+void get(char str[],int s)
+{
+    int i;
+    char c;
+    for ( i = 0; i &lt; s; i++)
+    {
+        c=getchar();
+        if(c=='\n')
+        break;
+        str[i]=c;
+    }
+    str[i]='\0';
+}
+int stringToInteger(const char *str) {
+    int result = 0;
+    int sign = 1; // to handle negative numbers
+
+    // Check for a negative sign
+    if (*str == '-') {
+        sign = -1;
+        str++; // Move past the negative sign
+    }
+
+    // Process each character in the string
+    while (*str != '\0') {
+        if (*str >= '0' && *str &lt;= '9') {
+            result = result * 10 + (*str - '0');
+        } else {
+            // If a non-digit character is encountered, stop parsing
+            break;
+        }
+        str++;
+    }
+
+    return result * sign;
+}
+
+int main() {
+    char str[50];
+    printf("Enter String \n");
+    get(str,50);
+    int num = stringToInteger(str);
+
+    printf("String as integer: %d\n", num);
+    return 0;
+}
+        
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter String 
+8645
+String as integer: 8645
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

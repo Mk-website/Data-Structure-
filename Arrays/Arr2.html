@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Arrays</h1>
+    <h2>Program 2</h2>
+    <div class="box" id="pro1">
+    <h3>Enter an array from user and print the array in reverse order ?</h3>
+    <p>
+       <pre> 
+    #include &lt;stdio.h&gt;
+    
+    void main()
+    {
+    int arr[10],i;
+    for ( i = 0; i &lt;10; i++)
+    {
+    printf("Enter value at %d position\n",i+1);
+    scanf("%d",&arr[i]);
+    }
+    printf("Your Enter Array is :- \n");
+    for ( i = 9; i &gt;=0; i--)
+    {
+    printf("\n%d ",arr[i]);
+    
+    }
+    }
+        </pre>
+    </p>
+    <!--p>This is the start of the <code>main()</code> function, which is the entry point of the program. It has an integer return type 
+        (<code>void</code>) to indicate whether the program executed successfully  or encountered an error.</p>
+        <p><strong>Input the Elements of the Array</strong></p>
+        <ul>
+        <li>The program then declares an array 
+            <code>array</code> of size 
+            <code>size</code> to store the entered integers.</li>
+            <li>A loop is used to iterate through the array indices
+                 (<code>i</code>) from 0 to <code>size - 1</code>.</li>
+                 <li>Inside the loop, the user is prompted to enter an integer value using <code>scanf</code>, and the entered value is stored in the <code>i</code>-th position of the array.</li></ul>
+                </li>
+               <p><strong>Display the Elements of the Array</strong></p><ul><li>After all the values are entered, another loop is used to iterate through the array and display its contents.</li><li>The loop starts from index 9 and goes up to 0.</li>
+                <li><p>This loop iterates in reverse, starting from index 9 (the last element of the array) and goes down to index 0. Inside the loop, it prints the element at the current index of the array on a new line.</p></li></ul>
+                <p><strong>Program Termination</strong></p><ul><li>Finally, the program returns 0 to indicate successful execution to the operating system.</li></ul></li>
+    
+    </ul-->
+
+  
+   </div>
+   <div class="r">
+   
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter value at 1 position
+45
+Enter value at 2 position
+32
+Enter value at 3 position
+56
+Enter value at 4 position
+152
+Enter value at 5 position
+5
+Enter value at 6 position
+26
+Enter value at 7 position
+24
+Enter value at 8 position
+35
+Enter value at 9 position
+24
+Enter value at 10 position
+25
+Your Enter Array is :- 
+
+25
+24
+35
+24
+26
+5
+152
+56
+32
+45
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

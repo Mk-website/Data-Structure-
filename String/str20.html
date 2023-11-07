@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 20</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM THE USER AND COUNT THE NUMBER OF CHARACTERS, WORDS, SPACES AND LINES</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main(){
+    char str[30];
+    int i, ch = 0, spaces = 0, words = 0, lines = 0;
+    printf("Enter String\n");
+    gets(str);
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if(i == 0 && str[i] != ' '){
+            words++;
+        }
+        else if(str[i] == ' ')
+        {
+            spaces++;
+            if(str[i+1] != ' ' && str[i+1] != ' ')
+            {
+                words++;
+            }
+        }
+        else if(str[i] == '\n')
+        {
+            lines++;
+            if(str[i+1] != ' ' && str[i+1] != ' ')
+            {
+                words++;
+            }
+        }
+        ch++;
+    }
+    printf("Number of Characters = %d\n", ch);
+    printf("Number of Words = %d\n", words);
+    printf("Number of Spaces = %d\n", spaces);
+    printf("Number of Lines = %d\n", lines);
+    return 0;
+}
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter String
+My name is manjit.
+Number of Characters = 18
+Number of Words = 5
+Number of Spaces = 3
+Number of Lines = 1
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

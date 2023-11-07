@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Queue</h1>
+    <h2>Program 13</h2>
+    <div class="box" id="pro1">
+    <h3> Find the first circular tour that visits all petrol pumps</h3>
+    <p>
+      <pre>
+    #include &lt;stdio.h&gt;
+    #include &lt;conio.h&gt;
+    #include &lt;dos.h&gt;
+    int printTour(int arr[][2], int n)
+    {
+        int start = 0;
+        int end = 1;
+    
+        int curr_petrol = arr[start][0] - arr[start][1];
+    
+        while (end != start || curr_petrol &lt; 0)
+        {
+            while (curr_petrol &lt; 0 && start != end)
+            {
+                curr_petrol -= arr[start][0] - arr[start][1];
+                start = (start + 1)%n;
+    
+                if (start == 0)
+                return -1;
+            }
+    
+            curr_petrol += arr[end][0] - arr[end][1];
+    
+            end = (end + 1)%n;
+        }
+    
+        return start;
+    }
+    
+    void main()
+    {
+        int arr[3][2], i, start;
+        clrscr();	
+        for (i = 0; i &lt; 3; i++)
+        {
+        printf("Enter amount of petrol stored in petrol pump\n");
+        scanf("%d", &arr[i][0]);	
+        printf("Enter distance of the next petrol pump\n");
+        scanf("%d", &arr[i][1]);
+        }
+        
+    
+        start = printTour(arr, 3);
+    
+        if(start == -1){
+            printf("No solution");
+        } 
+        else{
+            printf("Start = %d", start);
+        }    
+    
+        delay(5000);
+    }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Enter amount of petrol stored in petrol pump
+        6
+        Enter distance of the next petrol pump
+        4
+        Enter amount of petrol stored in petrol pump
+        3
+        Enter distance of the next petrol pump
+        6
+        Enter amount of petrol stored in petrol pump
+        7
+        Enter distance of the next petrol pump
+        3
+        Start = 2  
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

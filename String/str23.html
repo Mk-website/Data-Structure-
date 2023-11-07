@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 23</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER A SENTENCE FROM USER AND THEN ENTER THE WORD AND COUNT THE OCCURENCE OF THAT WORD IN THE SENTENCE.</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+      
+        
+        long strLength(char str[]){
+            int len;
+            for (len = 0; str[len] != '\0'; len++);
+            return len;
+        }
+        
+        long countWord(char str[], char word[]){
+            int i, j, strlen, wordlen, count = 0;
+            strlen = strLength(str);
+            wordlen = strLength(word);
+            
+            for (i = 0; i <= strlen - wordlen; i++) {
+                int match = 1;
+        
+                for (j = 0; j < wordlen; j++) {
+                    if (str[i + j] != word[j]) {
+                        match = 0;
+                        break;
+                    }
+                }
+        
+                if (match) {
+                    count++;
+                    i += wordlen - 1;  
+                }
+            }
+            return count;
+        }
+        
+        int main(){
+            char str[30], word[10];
+            printf("Enter Sentence\n");
+            gets(str);
+            printf("Enter word to be search\n");
+            gets(word);
+            printf("%s present %ld times", word, countWord(str, word));
+            return 0;
+        }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Sentence
+hello world hello world
+Enter word to be search
+hello
+hello present 2 times
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

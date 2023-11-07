@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Stack</h1>
+    <h2>Program 13</h2>
+    <div class="box" id="pro1">
+    <h3>IMPLEMENT THE TOWER OF HANOI USING STACKS.</h3>
+    <p>
+      <pre>
+        #include&lt;stdio.h&gt;
+    #include &lt;conio.h&gt;
+    #include &lt;dos.h&gt;
+    void towerOfHanoi(int n, char start, char auxilary, char destination){
+        if(n == 0)
+        {
+            return;
+        }
+        towerOfHanoi(n-1, start, destination, auxilary);
+        printf("Disk no %d moved from %c to %c rod\n", n, start, destination);
+        towerOfHanoi(n-1, auxilary, start, destination);
+    }
+    
+    void main(){
+        int n;
+        clrscr();
+        printf("Enter Number of disks\n");
+        scanf("%d", &n);
+        towerOfHanoi(n, 'A', 'B', 'C');
+        delay(5000);
+    }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Number of disks
+4
+Disk no 1 moved from A to B rod
+Disk no 2 moved from A to C rod
+Disk no 1 moved from B to C rod
+Disk no 3 moved from A to B rod
+Disk no 1 moved from C to A rod
+Disk no 2 moved from C to B rod
+Disk no 1 moved from A to B rod
+Disk no 4 moved from A to C rod
+Disk no 1 moved from B to C rod
+Disk no 2 moved from B to A rod
+Disk no 1 moved from C to A rod
+Disk no 3 moved from B to C rod
+Disk no 1 moved from A to B rod
+Disk no 2 moved from A to C rod
+Disk no 1 moved from B to C rod
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

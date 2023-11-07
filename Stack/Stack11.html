@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Stack</h1>
+    <h2>Program 11</h2>
+    <div class="box" id="pro1">
+    <h3>CREATE A PROGRAM TO EVALUATE THE PREFIX EXPRESSION.</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+        #include &lt;alloc.h&gt;
+        #include &lt;conio.h&gt;
+        #include &lt;dos.h&gt;
+        
+        struct node
+        {
+            float data;
+            struct node *next;
+        };
+        typedef struct node Node;
+        
+        int isEmpty(Node *top)
+        {
+            if (top == NULL)
+            {
+                return 1;
+            }
+            return 0;
+        }
+        
+        int isFull(Node *ptr)
+        {
+            if (ptr == NULL)
+            {
+                return 1;
+            }
+            return 0;
+        }
+        
+        float *push(Node **top, float val)
+        {
+            Node *nn;
+            nn = (Node *)malloc(sizeof(Node));
+            if (isFull(nn))
+            {
+                return NULL;
+            }
+            nn-&gt;data = val;
+            nn-&gt;next = *top;
+            *top = nn;
+            return &(nn-&gt;data);
+        }
+        
+        int pop(Node **top)
+        {
+            Node *temp;
+            if (isEmpty(*top))
+            {
+                return 0;
+            }
+            temp = *top;
+            (*top) = temp-&gt;next;
+            free(temp);
+            return 1;
+        }
+        
+        float *peek(Node *top)
+        {
+            if (isEmpty(top))
+            {
+                return NULL;
+            }
+        
+            return &(top-&gt;data);
+        }
+        
+        long strLength(char str[]){
+            int len;
+            for (len = 0; str[len] != '\0'; len++);
+            return len;
+        }
+        int isOperand(char ch){
+            return (ch &gt;= '0' && ch &lt;= '9');
+        }
+        int isOperator(char c){
+            return (c == '+' || c == '-' || c == '*' || c == '/');
+        }
+        int chtoint(char ch){
+            return (ch-'0');
+        }
+        
+        float eval(char opr, float op1, float op2){
+            if(opr == '+')
+                return (op1+op2);
+            else if (opr == '-')
+                return (op1-op2);
+            else if(opr == '*')
+                return (op1*op2);
+            else if (opr == '/')
+                return (op1/op2);
+            return 0;
+        }
+        
+        float prefixEval(char expression[]){
+            Node *top = NULL;
+            int up = strLength(expression)-1;
+            while(up &gt;= 0)
+            {
+                if(isOperand(expression[up]))
+                {
+                    push(&top, chtoint(expression[up]));
+                }
+                else if(isOperator(expression[up]))
+                {
+                    float a = *(peek(top-&gt;next));
+                    float b = *(peek(top));
+                    pop(&top);
+                    pop(&top);
+                    push(&top, eval(expression[up], a, b));
+                } 
+                up--;      
+            }
+            up = *(peek(top));
+            free(top);
+            return up;
+        }
+        
+        void main(){
+            char exp[30];
+            clrscr();
+            printf("Enter an Prefix Expression\n");
+            gets(exp);
+        
+            printf("Evaluated Postfix Expression is : %f", prefixEval(exp));
+            delay(5000);
+        }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+    Enter an Prefix Expression
+    ++5*942
+    Evaluated Postfix Expression is : 43.000000 
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

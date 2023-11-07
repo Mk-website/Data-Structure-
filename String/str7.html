@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 7</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER TWO STRINGS FROM USER AND COMPARE THOSE STRINGS THAT THEY ARE EQUAL OR NOT?</h3>
+    <p>
+      <pre>
+        #include &lt;stdio.h&gt;
+      
+       
+            void get(char str[],int s)
+            {
+                int i;
+                char c;
+                printf("Enter Sentance\n");
+                for ( i = 0; i < s; i++)
+                {
+                    c=getchar();
+                    if(c=='\n')
+                    break;
+                    str[i]=c;
+                }
+                str[i]='\0';
+            }
+            int length(char str[],int i)
+            {
+                for ( i = 0; str[i]!='\0'; i++);
+                return i;
+                
+            }
+            void main()
+            {
+               
+                char str[50],str2[50];
+                int i,j,k,isequal;
+                get(str,50);
+                get(str2,50);
+                i=length(str,0);
+                j=length(str2,0);
+                if(i==j)
+                {
+                     printf("Length is same\n");
+                    for ( k = 0; str[k]!='\0'; k++)
+                    {
+                        if(str[k]==str2[k])
+                        {
+                            isequal=1;
+                        }
+                        else
+                        isequal=0;
+                    }
+                    
+                }
+               
+                else
+                printf("Not same\n");
+                if (isequal==1)
+                {
+                    printf("String is same\n");
+                }
+                else
+                printf("String is not same\n");
+                
+                printf("Sentance is : %s\n",str);
+                printf("Sentance is : %s\n",str2);
+            }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter Sentance
+manjit 
+Enter Sentance
+Manjeet
+String is not same
+Sentance is : manjit
+Sentance is : Manjeet
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

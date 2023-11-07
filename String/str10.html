@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 10</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM USER, ENTER THE INDEX NUMBER AND PRINT CHARACTER PRESENT ON THAT INDEX ?</h3>
+    <p>
+      <pre>
+#include &lt;stdio.h&gt;
+void get(char str[],int s)
+{
+    int i;
+    char c;
+    for ( i = 0; i < s; i++)
+    {
+        c=getchar();
+        if (c=='\n')
+        {
+            break;
+        }
+        str[i]=c;
+        
+    }
+    str[i]='\0';
+}
+
+void main()
+{
+    char str[50];
+    int i;
+    get(str,50);
+    printf("Enter Index\n");
+    scanf("%d",&i);
+    printf(" %c",str[i]);
+}
+            
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+Enter String
+Good Mornning
+Enter Index
+5
+ M
+</pre>
+    </div>
+</div>
+</body>
+
+</html>

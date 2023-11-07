@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="../css1/arr.css">
+</head>
+<body>
+    
+    <h1>Strings</h1>
+    <h2>Program 26</h2>
+    <div class="box" id="pro1">
+    <h3>ENTER THE STRING FROM USER AND SPLITS THE FIRST WORD AND SECOND WORD AND RETURN THE START INDEX OF THE SECOND WORD.</h3>
+    <p>
+      <pre>
+        #include&lt;stdio.h&gt;
+    #include&lt;alloc.h&gt;
+    #include&lt;conio.h&gt;
+    #include&lt;dos.h&gt;
+    long strLength(char str[]){
+        int len;
+        for (len = 0; str[len] != '\0'; len++);
+        return len;
+    }
+    
+    char* split(char string[], int index) {
+        int i;
+        char *first_part;
+        if(index &lt; 0 || index &gt;= strLength(string)) {
+        printf("Invalid index.\n");
+        return NULL;
+        }
+    
+        first_part = (char*)malloc((index + 1) * sizeof(char));
+        if (first_part == NULL) {
+        printf("Memory allocation failed.\n");
+        return NULL;
+        }
+    
+        for (i = 0; i &lt; index; i++) {
+        first_part[i] = string[i];
+        }
+    
+        first_part[i] = '\0';
+    
+        return first_part;
+    }
+    
+    void main(){
+        char str[30];
+        int ind;
+        char *word;
+        clrscr();
+        printf("Enter a String\n");
+        gets(str);
+        printf("Enter index where to split\n");
+        scanf("%d", &ind);
+        word =  split(str, ind);
+        printf("Splitted Word is %s\n", word);
+        free(word);
+        delay(5000);
+    }
+      </pre> 
+        
+    </p>
+   
+  
+   </div>
+   <div class="r">
+    
+    <h1>OUTPUT</h1>
+    <div id="result">
+       <pre>
+        Enter a String
+        Hello World I am Green                                                          
+        Enter index where to split                                                      
+        5
+        Splitted Word is Hello
+</pre>
+    </div>
+</div>
+</body>
+
+</html>
