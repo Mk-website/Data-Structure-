@@ -70,13 +70,18 @@
   margin-top: 2%;
   
 }
-.sidebar header {
+ .sidebar header {
   font-size: 1.5em;
-  color: whitesmoke;
   line-height: 40px;
   text-align: center;
   background: #063146;
-  user-select: none;
+  
+}
+.sidebar header a
+{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 .sidebar ul li i{
   display: block;
@@ -102,6 +107,7 @@
   color: aqua;
   font-size: 1.5em;
   width: 100%;
+  cursor: pointer;
 }
 #iframe-container {
   position: relative;

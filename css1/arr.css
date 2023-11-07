@@ -57,6 +57,12 @@ table th {
 table td{
 color: rgb(21, 0, 255);
 border: 2px groove blue;
+
+}
+table td a
+{
+  text-decoration: none;
+  color: rgb(21, 0, 255);
 }
 h3
 {
