@@ -59,39 +59,7 @@
   margin: 2% 10% 0% 5%;
   
 }
-.dsbg
-{
-  width: 100vw;
-  height: 70vh;
-  background-image: url("../img/dsa2.jpg");
-  border: 2px solid black;
-  margin-bottom: 5px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 1;
 
-}
-.dsbg h1
-{
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  margin-top: 20%;
-}
-.dsbg button
-{
-  justify-content: center;
-  align-items: center;
-  text-align: center; 
-  color: red;
-  background-color: black;
-  border: 0.2em solid greenyellow;
-  margin-left: 45% ;
-  width: 10%;
-  height: 5%;
-  cursor: pointer;
-}
 .btn {
   padding: 0px 20px;
   padding-top: 3px;
