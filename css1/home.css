@@ -8,7 +8,7 @@
   height: 70vh;
   background-image: url("../img/dsa2.jpg");
   border: 2px solid black;
-  margin-bottom: 5px;
+  margin-bottom: 5%;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 1;
@@ -71,8 +71,10 @@ a
 }
 .card-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
+  
 }
 
 /* CSS for each card */
@@ -113,7 +115,7 @@ a
 /* CSS for the card image */
 .card-image {
   width: 100%;
-  height: auto;
+  height: 50vh;
   transition: filter 0.3s; /* Smooth transition for image brightness */
 }
 
@@ -121,8 +123,15 @@ a
 .card:hover .card-image {
   filter: brightness(1.5); /* Increase image brightness on hover */
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1200px) {
   .card {
-    flex: 0 1 calc(50% - 20px); /* 50% width with a gap between cards */
+    flex: 0 1 50%; /* Full width for each card */
+    margin: 0 auto 5% auto;
   }
+  
+}
+body
+{
+  background-color: #000;
 }

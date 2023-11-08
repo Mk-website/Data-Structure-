@@ -23,10 +23,13 @@
             </ul>
         </div>
         <div class="nav-right">
-            <form action="/search.html" method="get">
-                <input class="form-input" type="text" name="query" placeholder="Program Search">
-                <button class="btn">Search</button>
-            </form>
+            <form id="search-form" action="search.html" method="get">
+                <input class="form-input" type="text" id="search-input" list="program-list" placeholder="Program Search">
+                <datalist id="program-list">
+
+                </datalist>
+                <button class="btn" type="button" onclick="searchProgram()">Search</button> </form>
+            
         </div>
 
     </nav>
@@ -231,21 +234,17 @@
             </div>
             <div class="m-auto content max-width-1 my-2">
             <div class="main">
-               
-                <div id="iframe-container">
+                <div class="iframe-container">
                     <iframe id="iframe" src="Menu.html" frameborder="1" name="Program"></iframe>
                 </div>
-                
         </div>
             </div>
-      
-
-            
-            
+    
             <div class="footer">
                 <p>Copyright &copy; CodeLearner.com </p>
                 <a href="https://www.vecteezy.com/free-vector/typewriter">Vector Credits: Vecteezy</a>
             </div>
 </body>
 <script src="javascript/main.js"></script>
+
 </html>
