@@ -8,10 +8,10 @@
 </head>
 <body>
     
-    <h1>MERGE SORT </h1>
-    <h2>Program 7</h2>
+    <h1>MERGE SORT</h1>
+    <h2>Program 8</h2>
     <div class="box" id="pro1">
-    <h3>ENTER A INTEGER ARRAY FROM THE USER AND PERFORM MERGE SORT ALGORITHM THROUGH ITERATION. ALSO CALCULATE THE WORST AND BEST COMPLEXITY WITH EXACT TIME.</h3>
+    <h3>ENTER A INTEGER ARRAY FROM THE USER AND PERFORM MERGE SORT ALGORITHM THROUGH RECURSION. ALSO CALCULATE THE WORST AND BEST COMPLEXITY WITH EXACT TIME.</h3>
     <p>
       <pre>
         #include &lt;stdio.h&gt;
@@ -19,20 +19,19 @@
         #include &lt;time.h&gt;
         
         void merge(int arr[], int left, int mid, int right) {
-            int i, j, k;
             int n1 = mid - left + 1;
             int n2 = right - mid;
         
             int L[n1], R[n2];
         
-            for (i = 0; i &lt; n1; i++)
+            for (int i = 0; i &lt; n1; i++) {
                 L[i] = arr[left + i];
-            for (j = 0; j &lt; n2; j++)
-                R[j] = arr[mid + 1 + j];
+            }
+            for (int i = 0; i &lt; n2; i++) {
+                R[i] = arr[mid + 1 + i];
+            }
         
-            i = 0;
-            j = 0;
-            k = left;
+            int i = 0, j = 0, k = left;
         
             while (i &lt; n1 && j &lt; n2) {
                 if (L[i] &lt;= R[j]) {
@@ -58,21 +57,17 @@
             }
         }
         
-        void mergeSort(int arr[], int n) {
-            int curr_size;
-            int left_start;
-        
-            for (curr_size = 1; curr_size &lt;= n - 1; curr_size = 2 * curr_size) {
-                for (left_start = 0; left_start &lt; n - 1; left_start += 2 * curr_size) {
-                    int mid = left_start + curr_size - 1;
-                    int right_end = (left_start + 2 * curr_size - 1 &lt; n - 1) ? (left_start + 2 * curr_size - 1) : (n - 1);
-                    merge(arr, left_start, mid, right_end);
-                }
+        void mergeSort(int arr[], int left, int right) {
+            if (left &lt; right) {
+                int mid = left + (right - left) / 2;
+                mergeSort(arr, left, mid);
+                mergeSort(arr, mid + 1, right);
+                merge(arr, left, mid, right);
             }
         }
         
         int main() {
-            int n=10, arr[10];
+          int n=10, arr[10];
             printf("Enter %d integers : ", n);
             for (int i = 0; i &lt; n; i++) {
                 scanf("%d", &arr[i]);
@@ -91,7 +86,7 @@
         
             // Worst-case time complexity
             start_time = clock();
-            mergeSort(worst_case, n);
+            mergeSort(worst_case, 0, n - 1);
             end_time = clock();
             printf("Sorted array in worst case:\n");
             for (int i = 0; i &lt; n; i++) {
@@ -101,7 +96,7 @@
         
             // Best-case time complexity (already sorted array)
             start_time = clock();
-            mergeSort(best_case, n);
+            mergeSort(best_case, 0, n - 1);
             end_time = clock();
             printf("Sorted array in best case:\n");
             for (int i = 0; i &lt; n; i++) {
@@ -112,7 +107,6 @@
             return 0;
         }
         
-
       </pre> 
         
     </p>
@@ -125,21 +119,21 @@
     <div id="result">
        <pre>
 Enter 10 integers : 2
+5
 3
 6
-5
-8
 9
-7
+8
 4
+54
 12
-25
+36
 Sorted array in worst case:
-2 3 4 5 6 7 8 9 12 25
+2 3 4 5 6 8 9 12 36 54
 Worst case time taken: 0.000000 seconds      
 Sorted array in best case:
-2 3 4 5 6 7 8 9 12 25
-Best case time taken: 0.000000 seconds 
+2 3 4 5 6 8 9 12 36 54
+Best case time taken: 0.000000 seconds
 </pre>
     </div>
 </div>
