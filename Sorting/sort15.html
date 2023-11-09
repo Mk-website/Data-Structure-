@@ -8,30 +8,81 @@
 </head>
 <body>
     
-    <h1>RECURSION</h1>
-    <h2>Program 1</h2>
+    <h1>INSERTION SORT</h1>
+    <h2>Program 15</h2>
     <div class="box" id="pro1">
-    <h3>CALCULATE FACTORIAL OF A NUMBER USING RECURSION</h3>
+    <h3>ENTER A STRING ARRAY FROM THE USER AND PERFORM INSERTION SORT ALGORITHM THROUGH ITERATION. ALSO CALCULATE THE WORST AND BEST COMPLEXITY WITH EXACT TIME.</h3>
     <p>
       <pre>
-        #include &lt;stdio.h&gt;
-      
-            int factorial(int num)
-            {
-                if (num==0 || num ==1)
-                {
-                    return 1;
-                }
-                else
-                return num*factorial(num-1);
-            }
-            void main()
-            {
-                int num;
-                printf("Enter Number\n");
-                scanf("%d",&num);
-                printf("Factorial of %d is %d",num,factorial(num));
-            }
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+void insertionSort(char* arr[], int n) {
+    for (int i = 1; i &lt; n; i++) {
+        char* key = arr[i];
+        int j = i - 1;
+
+        while (j &gt;= 0 && strcmp(arr[j], key) &gt; 0) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = key;
+    }
+}
+
+int main() {
+   int n=10;
+    char* arr[n];
+    printf("Enter the strings: \n");
+    for (int i = 0; i &lt; n; i++) {
+        arr[i] = (char*)malloc(100 * sizeof(char));
+        scanf("%s", arr[i]);
+    }
+
+    char* worst_case[n];
+    char* best_case[n];
+
+    // Copy the original array for best-case scenario
+    for (int i = 0; i &lt; n; i++) {
+        worst_case[i] = strdup(arr[i]);
+        best_case[i] = strdup(arr[i]);
+    }
+
+    clock_t start_time, end_time;
+
+    // Worst-case time complexity
+    start_time = clock();
+    insertionSort(worst_case, n);
+    end_time = clock();
+    printf("Sorted array in worst case:\n");
+    for (int i = 0; i &lt; n; i++) {
+        printf("%s\n", worst_case[i]);
+    }
+    printf("Worst case time taken: %.6f seconds\n", (double)(end_time - start_time) / CLOCKS_PER_SEC);
+
+    // Best-case time complexity (already sorted array)
+    start_time = clock();
+    insertionSort(best_case, n);
+    end_time = clock();
+    printf("Sorted array in best case:\n");
+    for (int i = 0; i &lt; n; i++) {
+        printf("%s\n", best_case[i]);
+    }
+    printf("Best case time taken: %.6f seconds\n", (double)(end_time - start_time) / CLOCKS_PER_SEC);
+
+    // Free dynamically allocated memory
+    for (int i = 0; i &lt; n; i++) {
+        free(arr[i]);
+        free(worst_case[i]);
+        free(best_case[i]);
+    }
+
+    return 0;
+}
+
       </pre> 
         
     </p>
@@ -43,9 +94,41 @@
     <h1>OUTPUT</h1>
     <div id="result">
        <pre>
-        Enter Number
-        5
-        Factorial of 5 is 120
+        Enter the strings: 
+Manjit
+hello
+java
+html
+css
+javascript
+python
+c
+c++
+mysql
+Sorted array in worst case:
+Manjit
+c
+c++
+css
+hello
+html
+java
+javascript
+mysql
+python
+Worst case time taken: 0.000000 seconds
+Sorted array in best case:
+Manjit
+c
+c++
+css
+hello
+html
+java
+javascript
+mysql
+python
+Best case time taken: 0.000000 seconds
 </pre>
     </div>
 </div>
