@@ -13,26 +13,162 @@
     <h1>Arrays</h1>
     <h2>Program 1</h2>
     <div class="box" id="pro1">
-        <h3>Enter an array from user and display all the value ?</h3>
+        <h3>	CREATE THE GRAPH AS A ADJACENCY LIST WITH OPERATIONS SUCH AS INSERTION, DELETION</h3>
         <p>
         <pre>
-#include &lt;stdio.h&gt;
-
-void main()
-{
-int arr[10],i;
-for ( i = 0; i &lt;10; i++)
-{
-printf("Enter value at %d position\n",i+1);
-scanf("%d",&arr[i]);
-}
-printf("Your Enter Array is :- \n");
-for ( i = 0; i &lt;10; i++)
-{
-printf("\n%d ",arr[i]);
-
-}
-}
+            #include &lt;stdio.h&gt;
+            #include &lt;stdlib.h&gt;
+            
+            #define MAX_VERTICES 10
+            
+            struct Node {
+                int vertex;
+                struct Node* next;
+            };
+            
+            struct Graph {
+                struct Node* adjList[MAX_VERTICES];
+            };
+            
+            struct Node* createNode(int vertex) {
+                struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+                newNode-&gt;vertex = vertex;
+                newNode-&gt;next = NULL;
+                return newNode;
+            }
+            
+            struct Graph* createGraph() {
+                struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
+            
+                for (int i = 0; i &lt; MAX_VERTICES; ++i) {
+                    graph-&gt;adjList[i] = NULL;
+                }
+            
+                return graph;
+            }
+            
+            void addEdge(struct Graph* graph, int src, int dest) {
+                struct Node* newNode = createNode(dest);
+                newNode-&gt;next = graph-&gt;adjList[src];
+                graph-&gt;adjList[src] = newNode;
+            
+                newNode = createNode(src);
+                newNode-&gt;next = graph-&gt;adjList[dest];
+                graph-&gt;adjList[dest] = newNode;
+            }
+            
+            void printGraph(struct Graph* graph) {
+                printf("\nAdjacency List:\n");
+                for (int i = 0; i &lt; MAX_VERTICES; ++i) {
+                    struct Node* temp = graph-&gt;adjList[i];
+                    printf("Vertex %d: ", i);
+                    while (temp != NULL) {
+                        printf("%d -&gt; ", temp-&gt;vertex);
+                        temp = temp-&gt;next;
+                    }
+                    printf("NULL\n");
+                }
+            }
+            
+            void removeEdge(struct Graph* graph, int src, int dest) {
+                struct Node* current = graph-&gt;adjList[src];
+                struct Node* prev = NULL;
+            
+                while (current != NULL && current-&gt;vertex != dest) {
+                    prev = current;
+                    current = current-&gt;next;
+                }
+            
+                if (current != NULL) {
+                    if (prev != NULL) {
+                        prev-&gt;next = current-&gt;next;
+                    } else {
+                        graph-&gt;adjList[src] = current-&gt;next;
+                    }
+            
+                    free(current);
+                }
+            
+                current = graph-&gt;adjList[dest];
+                prev = NULL;
+            
+                while (current != NULL && current-&gt;vertex != src) {
+                    prev = current;
+                    current = current-&gt;next;
+                }
+            
+                if (current != NULL) {
+                    if (prev != NULL) {
+                        prev-&gt;next = current-&gt;next;
+                    } else {
+                        graph-&gt;adjList[dest] = current-&gt;next;
+                    }
+            
+                    free(current);
+                }
+            }
+            
+            void removeVertex(struct Graph* graph, int vertex) {
+                for (int i = 0; i &lt; MAX_VERTICES; ++i) {
+                    removeEdge(graph, i, vertex);
+                }
+            
+                struct Node* current = graph-&gt;adjList[vertex];
+                while (current != NULL) {
+                    struct Node* temp = current;
+                    current = current-&gt;next;
+                    free(temp);
+                }
+            
+                graph-&gt;adjList[vertex] = NULL;
+            }
+            
+            int main() {
+                int numVertices, numEdges;
+                printf("Enter the number of vertices (max %d): ", MAX_VERTICES);
+                scanf("%d", &numVertices);
+            
+                struct Graph* graph = createGraph();
+            
+                printf("Enter the number of edges: ");
+                scanf("%d", &numEdges);
+            
+                printf("Enter the edges (source destination): \n");
+                for (int i = 0; i &lt; numEdges; ++i) {
+                    int src, dest;
+                    printf("Edge %d: ", i + 1);
+                    scanf("%d %d", &src, &dest);
+                    if (src &gt;= 0 && src &lt; numVertices && dest &gt;= 0 && dest &lt; numVertices) {
+                        addEdge(graph, src, dest);
+                    } else {
+                        printf("Invalid edge. Ignoring...\n");
+                        i--;  // Decrement i to re-enter the current edge
+                    }
+                }
+            
+                printGraph(graph);
+            
+                // Example: Remove edge (0, 2)
+                int src, dest;
+                printf("\nEnter the edge to remove (source destination): ");
+                scanf("%d %d", &src, &dest);
+                removeEdge(graph, src, dest);
+            
+                printf("\nAfter removing edge (%d, %d):\n", src, dest);
+                printGraph(graph);
+            
+                // Example: Remove vertex
+                int vertex;
+                printf("\nEnter the vertex to remove: ");
+                scanf("%d", &vertex);
+                removeVertex(graph, vertex);
+            
+                printf("\nAfter removing vertex %d:\n", vertex);
+                printGraph(graph);
+            
+                return 0;
+            }
+            
       </pre>
 
         </p>
@@ -44,38 +180,31 @@ printf("\n%d ",arr[i]);
         <h1>OUTPUT</h1>
         <div id="result">
             <pre>
-Enter value at 1 position
-4
-Enter value at 2 position
-3
-Enter value at 3 position
+Enter the number of vertices (max 10): 5
+Enter the number of edges: 5
+Enter the edges (source destination): 
+Edge 1: 1
 2
-Enter value at 4 position
-5
-Enter value at 5 position
-6
-Enter value at 6 position
-9
-Enter value at 7 position
-8
-Enter value at 8 position
-15
-Enter value at 9 position
-24
-Enter value at 10 position
-56
-Your Enter Array is :- 
+Edge 2: 2
+1
+Edge 3: 3
+2
+Edge 4: 2
+3
+Edge 5: 4
+3
 
-4
-3
-2
-5
-6
-9
-8
-15
-24
-56
+Adjacency List:
+Vertex 0: NULL
+Vertex 1: 2 -> 2 -> NULL
+Vertex 2: 3 -> 3 -> 1 -> 1 -> NULL
+Vertex 3: 4 -> 2 -> 2 -> NULL     
+Vertex 4: 3 -> NULL
+Vertex 5: NULL
+Vertex 6: NULL
+Vertex 7: NULL
+Vertex 8: NULL
+Vertex 9: NULL
 </pre>
         </div>
     </div>
