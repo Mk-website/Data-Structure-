@@ -10,29 +10,59 @@
 
 <body>
 
-    <h1>Arrays</h1>
+    <h1>GRAPH</h1>
     <h2>Program 1</h2>
     <div class="box" id="pro1">
-        <h3>Enter an array from user and display all the value ?</h3>
+        <h3>ENTER THE VERTICES AND EDGES AND REPRESENT IN ADJACENCY MATRIX AND PRINT IT.</h3>
         <p>
         <pre>
 #include &lt;stdio.h&gt;
 
-void main()
-{
-int arr[10],i;
-for ( i = 0; i &lt;10; i++)
-{
-printf("Enter value at %d position\n",i+1);
-scanf("%d",&arr[i]);
-}
-printf("Your Enter Array is :- \n");
-for ( i = 0; i &lt;10; i++)
-{
-printf("\n%d ",arr[i]);
+// Maximum number of vertices
+#define MAX_VERTICES 10
 
+int main() {
+    int vertices, edges;
+    
+    // Get the number of vertices from the user
+    printf("Enter the number of vertices (max %d): ", MAX_VERTICES);
+    scanf("%d", &vertices);
+
+    if(vertices &gt; MAX_VERTICES || vertices &lt;= 0) {
+        printf("Invalid number of vertices. Exiting...\n");
+        return 1;
+    }
+
+    // Adjacency matrix to represent the graph
+    int adjMatrix[MAX_VERTICES][MAX_VERTICES] = {0};
+
+    // Get the number of edges from the user
+    printf("Enter the number of edges: ");
+    scanf("%d", &edges);
+
+    // Get edges from the user
+    printf("Enter the edges (vertex1 vertex2): \n");
+    for (int i = 0; i &lt; edges; ++i) {
+        int vertex1, vertex2;
+        scanf("%d %d", &vertex1, &vertex2);
+
+        // Update the adjacency matrix
+        adjMatrix[vertex1][vertex2] = 1;
+        adjMatrix[vertex2][vertex1] = 1;  // Assuming an undirected graph
+    }
+
+    // Print the adjacency matrix
+    printf("\nAdjacency Matrix:\n");
+    for (int i = 1; i &lt;= vertices; ++i) {
+        for (int j = 1; j &lt;= vertices; ++j) {
+            printf("%d ", adjMatrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
 }
-}
+
       </pre>
 
         </p>
@@ -44,38 +74,21 @@ printf("\n%d ",arr[i]);
         <h1>OUTPUT</h1>
         <div id="result">
             <pre>
-Enter value at 1 position
-4
-Enter value at 2 position
-3
-Enter value at 3 position
-2
-Enter value at 4 position
-5
-Enter value at 5 position
-6
-Enter value at 6 position
-9
-Enter value at 7 position
-8
-Enter value at 8 position
-15
-Enter value at 9 position
-24
-Enter value at 10 position
-56
-Your Enter Array is :- 
+Enter the number of vertices (max 10): 5
+Enter the number of edges: 5
+Enter the edges (vertex1 vertex2): 
+1 2 
+2 1 
+3 1
+4 2
+4 1
 
-4
-3
-2
-5
-6
-9
-8
-15
-24
-56
+Adjacency Matrix:
+0 1 1 1 0
+1 0 0 1 0
+1 0 0 0 0
+1 1 0 0 0
+0 0 0 0 0
 </pre>
         </div>
     </div>
