@@ -9,7 +9,11 @@ function loadLinkInIframe(link) {
             let selectedLink = linkSelector.value;
             loadLinkInIframe(selectedLink);
         });
-
+ let linkSelector11 = document.getElementById('linkSelector11');
+        linkSelector11.addEventListener('click', () => {
+            let selectedLink = linkSelector11.value;
+            loadLinkInIframe(selectedLink);
+        });
         let linkSelecto = document.getElementById('linkSelecto');
         linkSelecto.addEventListener('click', () => {
             let selectedLink = linkSelecto.value;
