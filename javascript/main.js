@@ -9,7 +9,11 @@ function loadLinkInIframe(link) {
             let selectedLink = linkSelector.value;
             loadLinkInIframe(selectedLink);
         });
-
+ let linkSelector11 = document.getElementById('linkSelector11');
+        linkSelector11.addEventListener('click', () => {
+            let selectedLink = linkSelector11.value;
+            loadLinkInIframe(selectedLink);
+        });
         let linkSelecto = document.getElementById('linkSelecto');
         linkSelecto.addEventListener('click', () => {
             let selectedLink = linkSelecto.value;
@@ -402,7 +406,13 @@ let iframe = document.getElementById('iframe');
                 let selectedLink = linkSelector9.value;
                 loadLinkInIframe(selectedLink);
             });
-        
+          let linkSelector11 = document.getElementById('linkSelector11');
+    
+            linkSelector11.addEventListener('click', () => {
+                let selectedLink = linkSelector11.value;
+                loadLinkInIframe(selectedLink);
+            });
+    
         function countProgramLinks() {
     const linkSelectors = document.querySelectorAll('.op');
     linkSelectors.forEach((selector, index) => {
