@@ -16,23 +16,102 @@
         <h3>FIND INORDER PREDECESSOR AND INORDER SUCCESSOR OF BINARY SEARCH TREE (DYNAMICALLY REPRESENTED)</h3>
         <p>
         <pre>
-#include &lt;stdio.h&gt;
 
-void main()
-{
-int arr[10],i;
-for ( i = 0; i &lt;10; i++)
-{
-printf("Enter value at %d position\n",i+1);
-scanf("%d",&arr[i]);
-}
-printf("Your Enter Array is :- \n");
-for ( i = 0; i &lt;10; i++)
-{
-printf("\n%d ",arr[i]);
-
-}
-}
+            #include&lt;stdio.h&gt;
+            #include&lt;stdlib.h&gt;
+            #include&lt;conio.h&gt;
+            struct node
+            {
+                int data;
+                struct node *left;
+                struct node *right;
+            };
+            typedef struct node Node;
+            
+            Node* initNode(int data){
+                Node *new = (Node*)malloc(sizeof(Node));
+                new-&gt;data = data;
+                new-&gt;left = new-&gt;right = NULL;
+                return new;
+            }
+            
+            int insert(Node *root, int val){
+                Node *prev = NULL, *newnode;
+                if (root == NULL)
+                {
+                    root = initNode(val);
+                    return 1;
+                }
+                
+                while (root != NULL)
+                {
+                    prev = root;
+                    if (val == root-&gt;data)
+                    {
+                        printf("%d already in Binary Search Tree\n", val);
+                        return 0;
+                    }
+                    else if (val &lt; root-&gt;data)
+                        root = root-&gt;left;
+                    else
+                        root = root-&gt;right;
+                }
+                newnode = initNode(val);
+                if (val &lt; prev-&gt;data)
+                    prev-&gt;left = newnode;
+                else
+                    prev-&gt;right = newnode;
+                return 1;
+            }
+            
+            Node* inPredecFinder(Node *root){
+                root = root-&gt;left;
+                while (root-&gt;right != NULL)
+                    root = root-&gt;right;
+                return root;
+            }
+            
+            Node* inSucFinder(Node *root){
+                root = root-&gt;right;
+                while (root-&gt;left != NULL)
+                    root = root-&gt;left;
+                return root;
+            }
+            
+            void inorderTraversal(Node* root) {
+                if (root == NULL) {
+                    return;
+                }
+                inorderTraversal(root-&gt;left);
+                printf("%d ", root-&gt;data);
+                inorderTraversal(root-&gt;right);
+            }
+            
+            int main(){
+                Node *root = NULL, *predec, *successor;
+                int val, i;
+                printf("Enter Root Value\n");
+                scanf("%d", &amp;val);
+                root = initNode(val);
+                for (i = 0; i &lt; 7; i++){
+                    printf("Enter Value to be inserted\n");
+                    scanf("%d", &amp;val);
+                    insert(root, val);
+                }
+                inorderTraversal(root);
+                predec = inPredecFinder(root);
+                successor = inSucFinder(root);
+                if (predec == NULL)
+                    printf("Inorder Predecessor Not Available in this BST\n");
+                else
+                    printf("\nInorder Predecessor of Above Tree is %d\n", predec-&gt;data);
+                if (successor == NULL)
+                    printf("Inorder Successor Not Available in this BST\n");
+                else
+                    printf("\nInorder Successor of Above Tree is %d\n", successor-&gt;data);
+                return 0;
+            }
+                
       </pre>
 
         </p>
@@ -44,38 +123,27 @@ printf("\n%d ",arr[i]);
         <h1>OUTPUT</h1>
         <div id="result">
             <pre>
-Enter value at 1 position
-4
-Enter value at 2 position
-3
-Enter value at 3 position
-2
-Enter value at 4 position
-5
-Enter value at 5 position
-6
-Enter value at 6 position
-9
-Enter value at 7 position
+Enter Root Value
+50
+Enter Value to be inserted
+30
+Enter Value to be inserted
+20
+Enter Value to be inserted
+40
+Enter Value to be inserted
+70
+Enter Value to be inserted
+60
+Enter Value to be inserted
+80
+Enter Value to be inserted
 8
-Enter value at 8 position
-15
-Enter value at 9 position
-24
-Enter value at 10 position
-56
-Your Enter Array is :- 
+8 20 30 40 50 60 70 80 
+Inorder Predecessor of Above Tree is 40
 
-4
-3
-2
-5
-6
-9
-8
-15
-24
-56
+Inorder Successor of Above Tree is 60
+            
 </pre>
         </div>
     </div>

@@ -16,23 +16,96 @@
         <h3>DISPLAY THE RIGHT VIEW OF BINARY TREE</h3>
         <p>
         <pre>
-#include &lt;stdio.h&gt;
 
-void main()
-{
-int arr[10],i;
-for ( i = 0; i &lt;10; i++)
-{
-printf("Enter value at %d position\n",i+1);
-scanf("%d",&arr[i]);
-}
-printf("Your Enter Array is :- \n");
-for ( i = 0; i &lt;10; i++)
-{
-printf("\n%d ",arr[i]);
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
 
+struct treeNode
+{
+    int data;
+    struct treeNode *left;
+    struct treeNode *right;
+};
+typedef struct treeNode TreeNode;
+struct queueNode
+{
+    TreeNode *data;
+    struct queueNode *next;
+};
+typedef struct queueNode QueueNode;
+
+TreeNode* newNode(int val) {
+    TreeNode* node = (TreeNode*)malloc(sizeof(TreeNode));
+    node-&gt;data = val;
+node-&gt;left = NULL;
+node-&gt;right = NULL;
+return node;
+
+n (QueueNode *)malloc(sizeof(QueueNode));
+
+
+ienqueue(QueueNode **rear, QueueNode **front, TreeNode *data)
+
+
+nn-&gt;next = NULL;
+QueueNode *nn;
+{
+if (nn == NULL)
+}
+    return 0;
+{
+nn-&gt;data = data;
+}
+if (*front == NULL)
+return 1;
+    *front = nn;
+
+e
+
+(*rear)-&gt;next = nn;    if ((*front) == NULL)*r = nn;return NULL;TNode *data = (*front)-&gt;data;TN* dequeue(QueueNode **rear, QueueNode **front)i(*front) == (*rear))QeNode *temp;*nt = *rear = NULL;else{t = (*front);rrn data;ii;(*front) = temp -&gt; next;front = front-&gt;next;    free(temp);}}v printRightView(TreeNode* root) {
+long queueSize(QueueNode *front){
+    frontrear = NULL;
+    for ( 0; front != NULL; i++)
+        rrn;
+    retur;
+    ee&amp;rear, &amp;front, root);
+
+    weront != NULL) {
+    Qee *front, *rear;
+
+    ir == NULL)
+    TN* node = dequeue(&amp;rear, &amp;front);
+
+printf("%d ", node-&gt;data);
+
+
+ilevelSize = queueSize(front);
+eeue(&amp;rear, &amp;front, node-&gt;left);
+f(int i = 0; i &lt; levelSize; i++) {
+enqueue(&amp;rear, &amp;front, node-&gt;right);
+if (i == levelSize-1) {
 }
 }
+
+if (node-&gt;left != NULL)
+TreeNode* root = newNode(1);
+if (node-&gt;right != NULL)
+root-&gt;right = newNode(3);
+}
+root-&gt;left-&gt;right = newNode(5);
+}
+root-&gt;right-&gt;right = newNode(7);
+int main(){
+    
+    root-&gt;left = newNode(2);
+    printRightView(root);
+    root-&gt;left-&gt;left = newNode(4);
+}
+                root-&gt;right-&gt;left = newNode(6);
+                root-&gt;right-&gt;left-&gt;right = newNode(8);
+                printf("Right View: ");
+                return 0;
+                
       </pre>
 
         </p>
@@ -44,38 +117,8 @@ printf("\n%d ",arr[i]);
         <h1>OUTPUT</h1>
         <div id="result">
             <pre>
-Enter value at 1 position
-4
-Enter value at 2 position
-3
-Enter value at 3 position
-2
-Enter value at 4 position
-5
-Enter value at 5 position
-6
-Enter value at 6 position
-9
-Enter value at 7 position
-8
-Enter value at 8 position
-15
-Enter value at 9 position
-24
-Enter value at 10 position
-56
-Your Enter Array is :- 
-
-4
-3
-2
-5
-6
-9
-8
-15
-24
-56
+    Right View: 1 3 7 8 
+            
 </pre>
         </div>
     </div>
